@@ -4,7 +4,7 @@ Pie chart widget for visualizing directory sizes.
 
 from typing import List, Optional
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QGraphicsView, QGraphicsScene
-from PyQt6.QtChart import QChart, QChartView, QPieSeries, QPieSlice
+from PyQt6.QtCharts import QChart, QChartView, QPieSeries, QPieSlice
 from PyQt6.QtCore import Qt, QPointF
 from PyQt6.QtGui import QColor, QFont, QPen, QBrush
 from utils.constants import PIE_CHART_COLORS
@@ -24,7 +24,7 @@ class PieChartWidget(QWidget):
         self._chart.legend().setAlignment(Qt.AlignmentFlag.AlignBottom)
         
         self._chart_view = QChartView(self._chart)
-        self._chart_view.setRenderHint(QGraphicsView.RenderHint.Antialiasing)
+        self._chart_view.setRenderHints(Qt.Antialiasing)
         
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
@@ -83,10 +83,10 @@ class PieChartWidget(QWidget):
             slice.setLabelVisible(True)
             slice.setLabel(f"{label}\n{format_size(size)} ({size/total_size*100:.1f}%)")
             slice.setLabelFont(QFont("Segoe UI", 8))
-            slice.setLabelPosition(QPieSlice.LabelPosition.InsideHorizontal)
+            slice.setLabelPosition(QPieSlice.LabelPosition.LabelInsideHorizontal)
             
             # Add tooltip
-            slice.setToolTip(f"{label}: {format_size(size)} ({size/total_size*100:.1f}%)")
+            slice.tooltip = f"{label}: {format_size(size)} ({size/total_size*100:.1f}%)"
             
             self._series.append(slice)
             

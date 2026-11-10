@@ -7,13 +7,13 @@ from typing import Optional
 from PyQt6.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
     QLabel, QPushButton, QFileDialog, QProgressBar,
-    QStackedWidget, QMessageBox, QFrame
+    QStackedWidget, QMessageBox, QFrame, QApplication
 )
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer
 from PyQt6.QtGui import QFont, QIcon
-from pie_chart import PieChartWidget
-from file_list import FileListWidget
-from navigation import NavigationBar
+from ui.pie_chart import PieChartWidget
+from ui.file_list import FileListWidget
+from ui.navigation import NavigationBar
 from scanner import DiskScanner
 from database import ScanDatabase
 from models import ScanResult, FileEntry
@@ -213,7 +213,7 @@ class MainWindow(QMainWindow):
             f"Files: {result.total_files}\n"
             f"Directories: {result.total_directories}"
         )
-        
+    
     def _on_scan_error(self, error: str):
         """Handle scan errors."""
         self.progress_bar.setVisible(False)

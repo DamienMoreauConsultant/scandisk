@@ -31,13 +31,6 @@ class NavigationBar(QWidget):
         self.back_button.setEnabled(False)
         layout.addWidget(self.back_button)
         
-        # Forward button (placeholder for future use)
-        # self.forward_button = QPushButton("→ Forward")
-        # self.forward_button.setIcon(QIcon.fromTheme("go-next"))
-        # self.forward_button.setFont(QFont("Segoe UI", 9))
-        # self.forward_button.setEnabled(False)
-        # layout.addWidget(self.forward_button)
-        
         # Path label
         self.path_label = QLabel("")
         self.path_label.setFont(QFont("Segoe UI", 10))

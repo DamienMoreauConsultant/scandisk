@@ -8,11 +8,12 @@ setup(
     package_dir={"": "."},
     packages=find_packages(where="."),
     install_requires=[
-        "PyQt6==6.4.0",
+        "PyQt6>=6.4.0",
+        "PyQt6-Charts>=6.4.0",
     ],
     entry_points={
         "console_scripts": [
-            "scandisk=scandisk.main:main",
+            "scandisk=main:main",
         ],
     },
 )

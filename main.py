@@ -4,6 +4,10 @@ Main entry point for the Disk Analyzer application.
 
 import sys
 from pathlib import Path
+
+# Add the current directory to Python path for imports
+sys.path.insert(0, str(Path(__file__).parent))
+
 from PyQt6.QtWidgets import QApplication
 from ui.main_window import MainWindow
 
