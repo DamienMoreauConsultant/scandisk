@@ -24,7 +24,7 @@ class PieChartWidget(QWidget):
         self._chart.legend().setAlignment(Qt.AlignmentFlag.AlignBottom)
         
         self._chart_view = QChartView(self._chart)
-        self._chart_view.setRenderHints(Qt.Antialiasing)
+        self._chart_view.setRenderHints(Qt.RenderHints.Antialiasing)
         
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
